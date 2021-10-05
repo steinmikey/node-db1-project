@@ -34,10 +34,15 @@ const deleteById = async (id) => {
   return deletedAccount;
 };
 
+const checkName = (name) => {
+  return db("accounts").where("name", name).first();
+};
+
 module.exports = {
   getAll,
   getById,
   create,
   updateById,
-  deleteById
+  deleteById,
+  checkName
 };
