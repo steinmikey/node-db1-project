@@ -7,8 +7,14 @@ SELECT * FROM Customers WHERE postalcode = 1010;
 SELECT phone FROM suppliers WHERE supplierid = 11;
 
 -- List first 10 orders placed, sorted descending by the order date
-SELECT * FROM orders ORDER BY orderdate
-LIMIT 10;
+SELECT * FROM 
+(
+SELECT * 
+FROM orders 
+ORDER BY orderdate
+LIMIT 10
+)
+ORDER BY orderdate DESC;
 
 -- Find all customers that live in London, Madrid, or Brazil
 SELECT * FROM customers 
